@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='AndroidLocationServices_2_4_2020'
