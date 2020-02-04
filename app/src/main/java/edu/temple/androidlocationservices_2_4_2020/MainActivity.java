@@ -74,4 +74,11 @@ public class MainActivity extends AppCompatActivity {
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener); // Cell sites
         locationManager.requestLocationUpdates(LocationManager.PASSIVE_PROVIDER, 0, 0, locationListener); // WiFi
     }
+
+    // Need a way to remove location updates, otherwise you could get a memory leak.
+    // LocationManager is a reference to the system service for locations, could lose access
+    // to this specific instance if Activity is restarted
+    private void stopLocationUpdates() {
+        locationManager.removeUpdates(locationListener);
+    }
 }
